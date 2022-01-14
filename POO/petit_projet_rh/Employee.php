@@ -22,14 +22,14 @@ class  employee{
     /**
      * @return string
      */
-    private function getName(): string {
+    public function getName(): string {
         return $this->name;
     }
 
     /**
      * @param string $name
      */
-    private function setName(string $name): void {
+    public function setName(string $name): void {
         $this->name = $name;
     }
 
@@ -119,8 +119,7 @@ class  employee{
 
     }
 
-
-    public function yearsOfService($entry) {
+    static function yearsOfService($entry){
         $arrayEntry = explode('/',$entry);
         $entryDay = $arrayEntry[0];
         $entryMonth = $arrayEntry[1];
@@ -132,12 +131,28 @@ class  employee{
     
         if ($day_diff < 0 && $month_diff==0) $year_diff--;
         if ($day_diff < 0 && $month_diff < 0) $year_diff--;
-        echo "This person arrived " . $year_diff . " years ago";
+            echo "This person arrived " . $year_diff . " years ago";
         return $year_diff;
+
     }
 
-    // function getPrime($seniority, $salaryPrime){
-    //     $salaryPrime = $this->salary * 1.05; 
-    //     $seniority = yearsOfService($this->$entry) * 1.02;
-    // }
+    function getPrime($year_diff){
+        $salaryPrime = $this->salary * 1.05; 
+        $seniority = $year_diff * 1.02;
+        $prime=$salaryPrime+$seniority;
+        return $prime;
+    }
+
+    public function sendOrderPrime($prime){
+        if(date('d/m')=="30/11") {
+        print "Versement de la prime de ".$employee1->getPrime()." €".PHP_EOL;
+        }
+    }
+    
+    
+    
 }
+$employee1 = new employee("Chi","Maria","24/12/2009","singer",50,"Culture");
+$employee1->yearsOfService('24/12/2009');
+
+echo $employee1->getPrime($year_diff);

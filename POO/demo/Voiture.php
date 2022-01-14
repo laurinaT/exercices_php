@@ -71,18 +71,18 @@ class Voiture {
 				return $this->nb_kms;
 		}
 
-		/**
-		 * Set the value of nb_kms
-		 *
-		 * @return  self
-		 */ 
-		public function setNb_kms($nb_kms)
-		{
-				$this->nb_kms = $nb_kms;
+// 		/**
+// 		 * Set the value of nb_kms
+// 		 *
+// 		 * @return  self
+// 		 */ 
+// 		public function setNb_kms($nb_kms)
+// 		{
+// 				$this->nb_kms = $nb_kms;
 
-				return $this;
-		}
-}
+// 				return $this;
+// 		}
+// }
 
 
 
